@@ -5,9 +5,7 @@ class Prototype:
     def __init__(self):
         self._objects = {}
 
-    def register_object(self, name, obj):
-        """Register an object"""
-        self._objects[name] = obj
+
 
     
 
@@ -16,7 +14,9 @@ class Prototype:
         obj = copy.deepcopy(self._objects.get(name))
         obj.__dict__.update(attr)
         return obj
+
     def clon_master(self):
         obj = copy.deepcopy(self._objects.get(name))
         obj.__dict__.update(attr)
         return obj
+
