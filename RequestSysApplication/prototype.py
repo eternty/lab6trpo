@@ -5,9 +5,7 @@ class Prototype:
     def __init__(self):
         self._objects = {}
 
-    def register_object(self, name, obj):
-        """Register an object"""
-        self._objects[name] = obj
+
 
     def unregister_object(self, name):
         """Unregister an object"""
@@ -18,3 +16,8 @@ class Prototype:
         obj = copy.deepcopy(self._objects.get(name))
         obj.__dict__.update(attr)
         return obj
+
+    def new (self):
+        obj = Request.objects.create()
+        obj.save()
+        return oj.id
