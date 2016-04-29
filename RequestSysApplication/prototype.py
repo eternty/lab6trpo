@@ -9,12 +9,14 @@ class Prototype:
         """Register an object"""
         self._objects[name] = obj
 
-    def unregister_object(self, name):
-        """Unregister an object"""
-        del self._objects[name]
+    
 
     def clone(self, name, **attr):
         """Clone a registered object and update inner attributes dictionary"""
+        obj = copy.deepcopy(self._objects.get(name))
+        obj.__dict__.update(attr)
+        return obj
+    def clon_master(self):
         obj = copy.deepcopy(self._objects.get(name))
         obj.__dict__.update(attr)
         return obj
